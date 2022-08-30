@@ -1,0 +1,11 @@
+# This is an example playbook to execute Ansible tests.
+---
+- name: Cleanup
+  hosts: all
+  gather_facts: false
+  vars:
+    desired_state: "absent"
+  tasks:
+    - name: "Include nginx"
+      ansible.builtin.include_role:
+        name: "nginx"

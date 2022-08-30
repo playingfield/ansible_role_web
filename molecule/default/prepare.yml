@@ -1,0 +1,10 @@
+# This is an example playbook to prepare Ansible tests.
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Include nginx"
+      ansible.builtin.include_role:
+        name: "nginx"
+        tasks_from: prepare

@@ -1,0 +1,8 @@
+---
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_handlers.html
+- name: Control service
+  ansible.builtin.systemd:
+    name: "{{ service }}"
+    state: "{{ systemd_state }}"
+    enabled: "{{ systemd_enabled }}"
+    daemon_reload: true

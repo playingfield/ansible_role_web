@@ -1,0 +1,4 @@
+# defaults file for nginx
+---
+desired_state: present
+package: nginx
