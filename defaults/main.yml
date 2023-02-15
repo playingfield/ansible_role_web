@@ -3,3 +3,4 @@
 desired_state: present
 package: nginx
 service: nginx
+webroot: /usr/share/nginx/html

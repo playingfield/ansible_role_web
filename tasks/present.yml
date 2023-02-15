@@ -14,7 +14,18 @@
     daemon_reload: true
   notify: Control service
 
-- name: Instal homepage
+- name: Ensure webroot exists
+  ansible.builtin.file:
+    path: "{{ webroot }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Install homepage
   ansible.builtin.template:
     src: index.html.j2
-    dest: /usr/share/nginx/html/index.html
+    dest: "{{ webroot }}/index.html"
+    owner: root
+    group: root
+    mode: '0644'

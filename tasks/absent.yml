@@ -7,3 +7,8 @@
   ansible.builtin.package:
     name: "{{ package }}"
     state: absent
+
+- name: Remove documents
+  ansible.builtin.file:
+    path: "{{ webroot }}"
+    state: absent

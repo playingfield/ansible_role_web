@@ -13,6 +13,8 @@ Role Variables
 
 `package` either 'httpd' or 'nginx'.
 `service` same as package most of the time.
+`webroot` either '/var/www/html' or '/usr/share/nginx/html'
+
 
 Dependencies
 ------------
