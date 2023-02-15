@@ -1,7 +1,7 @@
 ---
 # https://pre-commit.com/hooks.html
 default_language_version:
-  python: python3.8
+  python: python3
 exclude: .venv
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

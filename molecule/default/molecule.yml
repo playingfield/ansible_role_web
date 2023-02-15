@@ -1,26 +1,7 @@
 ---
-scenario:
-  name: default
-  test_sequence:
-    - lint
-    - destroy
-    - dependency
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - destroy
-
-dependency:
-  name: galaxy
-  options:
-    role-file: requirements.yml
 
 driver:
-  name: podman
+  name: docker
 
 platforms:
   - name: ubi8
@@ -37,8 +18,6 @@ provisioner:
     defaults:
       interpreter_python: auto_silent
       callbacks_enabled: profile_tasks, timer
-    ssh_connection:
-      pipelining: false
 
 lint: |
   set -e

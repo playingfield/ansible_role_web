@@ -3,7 +3,19 @@
 - name: Converge
   hosts: all
   gather_facts: false
+
+  vars:
+    role_name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+
+  pre_tasks:
+    - name: Gather selinux facts
+      ansible.builtin.setup:
+        gather_subset: selinux
+
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+
   tasks:
-    - name: "Include nginx"
+    - name: "Include tasks"
       ansible.builtin.include_role:
-        name: "nginx"
+        name: "{{ role_name }}"

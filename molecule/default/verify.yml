@@ -3,8 +3,12 @@
 - name: Verify
   hosts: all
   gather_facts: false
+
+  vars:
+    role_name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+
   tasks:
-    - name: "Include nginx"
+    - name: "Include verify tasks"
       ansible.builtin.include_role:
-        name: "nginx"
+        name: "{{ role_name }}"
         tasks_from: verify

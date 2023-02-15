@@ -1,11 +1,10 @@
 ---
 # https://docs.ansible.com/ansible/latest/galaxy/dev_guide.html
 galaxy_info:
-  author: ansible
-  description: Ansible role nginx
-  company: Company (optional)
-  role_name: nginx
-  namespace: your_namespace
+  author: Bas Meijer
+  description: Ansible role for a webserver
+  role_name: ansible_role_web
+  namespace: playingfield
   license: MIT
   min_ansible_version: "2.10"
   platforms:
