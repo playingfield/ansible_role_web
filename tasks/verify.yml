@@ -38,12 +38,13 @@
         state: started
         timeout: 10
 
-    - name: Get homepage
+    - name: Send http request
       ansible.builtin.uri:
         url: "http://{{ inventory_hostname }}"
+        method: HEAD
         return_content: true
-      register: html
+      register: web
 
-    - name: Display
+    - name: Display result
       ansible.builtin.debug:
-        msg: "{{ html.content }}"
+        msg: "server: {{ web.server }}"
