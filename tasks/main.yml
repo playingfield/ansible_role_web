@@ -1,5 +1,6 @@
 ---
 # Main tasks entry point for the role
+
 - name: "State variables - {{ desired_state }}"
   ansible.builtin.include_vars: "{{ desired_state }}.yml"
 
