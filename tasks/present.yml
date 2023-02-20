@@ -1,4 +1,4 @@
-# Tasks to reach desired state present
+# Tasks to reach desired_state: present
 ---
 - name: Manage package
   ansible.builtin.package:
