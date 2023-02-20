@@ -1,4 +1,6 @@
 ---
+# Molecule configuration
+# https://molecule.readthedocs.io/en/latest/
 
 driver:
   name: docker
