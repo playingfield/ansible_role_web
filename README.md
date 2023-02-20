@@ -1,7 +1,7 @@
 ansible_role_web
 =========
 
-A role to install a web server like httpd or nginx.
+A role to install a web server like **httpd** (aka Apache) or **Nginx**.
 
 Requirements
 ------------
