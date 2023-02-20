@@ -11,9 +11,15 @@ galaxy_info:
     - name: EL
       versions:
         - "8"
+    - name: Ubuntu
+      versions:
+        - "focal"
+    - name: Debian
+      versions:
+        - "buster"
 
   galaxy_tags:
-    - rhel
+    - networking
     # NOTE: A tag is limited to a single word comprised of alphanumeric
     # characters. Maximum 20 tags per role.
 
