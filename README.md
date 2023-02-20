@@ -11,13 +11,17 @@ Linux.
 Role Variables
 --------------
 
-`package` either 'httpd' or 'nginx'.
-`service` same as package most of the time.
-`webroot` either '/var/www/html' or '/usr/share/nginx/html'
-
+```yml
+# defaults
+desired_state: present  # or absent
+package: nginx  # or httpd
+service: nginx  # or httpd
+webroot: /usr/share/nginx/html  # or /var/www/html
+```
 
 Dependencies
 ------------
+None.
 
 Example Playbook
 ----------------
