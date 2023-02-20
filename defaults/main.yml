@@ -1,6 +1,7 @@
 ---
 # defaults
+
 desired_state: present
 package: nginx
-service: nginx
+service: "{{ package }}"
 webroot: /usr/share/nginx/html
