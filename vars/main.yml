@@ -1,4 +1,3 @@
-# vars file for
+# vars file
 ---
-service: "{{ package }}"
 service_port: 80
