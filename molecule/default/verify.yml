@@ -1,4 +1,4 @@
-# This is an example playbook to execute Ansible tests.
+# This is a playbook to verify the tasks.
 ---
 - name: Verify
   hosts: all
