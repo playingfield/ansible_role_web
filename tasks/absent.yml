@@ -1,4 +1,4 @@
-# Tasks to converge to state absent
+# Tasks to reach desired_state: absent
 ---
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
