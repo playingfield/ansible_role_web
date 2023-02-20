@@ -1,6 +1,7 @@
 ---
 # https://ansible-lint.readthedocs.io/en/latest/default_rules/
 exclude_paths:
-  - ./.tox
+  - ./.github
+  - ./.vscode
 skip_list:
   - experimental  # all rules tagged as experimental
