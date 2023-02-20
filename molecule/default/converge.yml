@@ -1,4 +1,4 @@
-# This is an example playbook to execute Ansible tests.
+# This is a playbook to test the tasks.
 ---
 - name: Converge
   hosts: all
