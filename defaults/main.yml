@@ -4,4 +4,5 @@
 desired_state: present
 package: nginx
 service: "{{ package }}"
+service_port: 80
 webroot: /usr/share/nginx/html
