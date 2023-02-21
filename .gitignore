@@ -38,10 +38,9 @@ tramp
 *.swo
 rh-creds.env
 travis.env
+.ipynb_checkpoints/
+Untitled.ipynb
 
-# Lockdown-specific
-benchparse/
-*xccdf.xml
 *.retry
 
 # GitHub Action/Workflow files
