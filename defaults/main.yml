@@ -3,6 +3,9 @@
 
 desired_state: present
 package: nginx
+dependencies:
+  - git
 service: "{{ package }}"
 service_port: 80
 webroot: /usr/share/nginx/html
+webrepo: 'https://github.com/playingfield/molecule_intro.git'

@@ -1,10 +1,15 @@
 # Tasks to reach desired_state: present
 ---
+- name: Manage dependencies
+  ansible.builtin.package:
+    name: "{{ dependencies }}"
+    state: "{{ desired_state }}"
+    update_cache: true
+
 - name: Manage package
   ansible.builtin.package:
     name: "{{ package }}"
     state: "{{ desired_state }}"
-    update_cache: true
   notify: Control service
 
 - name: Enable service
@@ -14,18 +19,30 @@
     daemon_reload: true
   notify: Control service
 
-- name: Ensure webroot exists
-  ansible.builtin.file:
-    path: "{{ webroot }}"
-    state: directory
-    owner: root
-    group: root
-    mode: '0755'
+- name: Check homepage
+  ansible.builtin.stat:
+    path: "{{ webroot }}/index.html"
+  register: homepage
 
-- name: Install homepage
-  ansible.builtin.template:
-    src: index.html.j2
-    dest: "{{ webroot }}/index.html"
-    owner: root
-    group: root
-    mode: '0644'
+- name: Install webrepo
+  block:
+    - name: Remove documents
+      ansible.builtin.file:
+        path: "{{ webroot }}"
+        state: absent
+
+    - name: Install webrepo in webroot
+      ansible.builtin.git:
+        repo: "{{ webrepo }}"
+        dest: "{{ webroot }}/"
+        single_branch: true
+        version: main
+
+    - name: Ensure webroot exists
+      ansible.builtin.file:
+        path: "{{ webroot }}"
+        owner: root
+        group: root
+        mode: '0755'
+        recurse: true
+  when: homepage.stat.readable is not defined
