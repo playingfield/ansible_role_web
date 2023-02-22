@@ -20,6 +20,7 @@ Role Variables
 ```yml
 # defaults
 desired_state: present  # or absent
+verify_state: false  # or true
 package: nginx  # or httpd
 service: nginx  # or httpd
 webroot: /usr/share/nginx/html  # or /var/www/html
