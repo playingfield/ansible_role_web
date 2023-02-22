@@ -2,6 +2,7 @@
 # defaults
 
 desired_state: present
+verify_state: false
 package: nginx
 dependencies:
   - git

@@ -19,30 +19,24 @@
     daemon_reload: true
   notify: Control service
 
-- name: Check homepage
-  ansible.builtin.stat:
-    path: "{{ webroot }}/index.html"
-  register: homepage
+- name: Check clone in webroot
+  ansible.builtin.git:
+    repo: "{{ webrepo }}"
+    dest: "{{ webroot }}/"
+    version: main
+    clone: false
+    update: false
+  register: clone
 
-- name: Install webrepo
+- name: Update webrepo in webroot
   block:
-    - name: Remove documents
+    - name: Delete webroot
       ansible.builtin.file:
         path: "{{ webroot }}"
         state: absent
-
-    - name: Install webrepo in webroot
+    - name: Clone webrepo in webroot
       ansible.builtin.git:
         repo: "{{ webrepo }}"
         dest: "{{ webroot }}/"
-        single_branch: true
         version: main
-
-    - name: Ensure webroot exists
-      ansible.builtin.file:
-        path: "{{ webroot }}"
-        owner: root
-        group: root
-        mode: '0755'
-        recurse: true
-  when: homepage.stat.readable is not defined
+  when: clone.before != clone.after
