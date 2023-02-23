@@ -5,7 +5,7 @@ default_language_version:
 exclude: .venv
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.4.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -25,13 +25,18 @@ repos:
         args: [-c=.yamllint]
 
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.2.2
+    rev: v1.5.2
     hooks:
       - id: ansible_role_find_unused_variable
       - id: ansible_role_find_empty_files
       - id: ansible_role_find_empty_directories
 
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5  # or specific git tag
+    rev: 3.0.0  # or specific git tag
     hooks:
       - id: shellcheck
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
